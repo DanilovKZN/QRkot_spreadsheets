@@ -22,7 +22,6 @@ class CRUDCharityProject(CRUDBase):
         project_name = project_name.scalars().first()
         return project_name
 
-
     async def get_projects_by_completion_rate(
         self,
         session: AsyncSession
@@ -32,7 +31,6 @@ class CRUDCharityProject(CRUDBase):
         def sort_collection_time(project_dict):
             collection_time = project_dict.close_date - project_dict.create_date
             return collection_time
-
 
         close_projects = await session.execute(
             select(CharityProject).where(
